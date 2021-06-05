@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+ <link rel="stylesheet" th:href=@{/css/collezione/collezione.css} />
+ <head th:replace="fragments/myH.html :: headerfiles(title=#{pageTitle.collezione})"> 
+    <meta charset="utf-8" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <nav th:replace="fragments/myH.html :: nav(index='/default')"></nav>
+    <section th:if="${collezione}" th:object="${collezione}">
+    	<div class ="title">
+    		<h1 th:text="*{nome}"> <b></b></h1>
+    		<b>Curatore: </b><p th:text="*{curatore.nome} + ' ' + *{curatore.cognome}">Stanislaw Koprinski</p>
+    		<div><b>Descrizione: </b>
+    		<p th:text="*{descrizione}">Descrizione</p>
+    		</div>
+    	</div>
+    	<!-- voglio provare a fare l'effetto transizione sulla foto, quindi prima prova -->
+    	<!-- flexbox container -->
+    <div class = "row">
+    <th:block th:each="quadro : ${quadri}">
+    	<div class = "container">
+    		<img th:src="@{${quadro.photosImagePath}}" alt="Quadro" class="image" width="350px" height="auto">
+    		<div class="overlay">
+    			<div class="text">
+    				<div><a href = "artista.html" 
+    				th:href="@{'/artista' + '/' + ${quadro.artista.id}}" 
+    				th:text="${quadro.artista.getNome() + ' ' + quadro.artista.getCognome()}" >Giorgio</a></div>
+    				<div><a href = "quadro.html" 
+    				th:href="@{'/quadro' + '/' + ${quadro.id}}"
+    				th:text="${quadro.titolo}">Titolo</a></div>
+    			</div>
+  			</div>
+    	</div>
+    </th:block>
+    </div>
+    </section>
+   <footer th:replace="fragments/myH.html :: fondo(index='/default')"></footer>
+  </body>
+</html>
