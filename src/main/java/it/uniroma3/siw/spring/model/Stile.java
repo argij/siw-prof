@@ -5,7 +5,8 @@ public enum Stile {
 	IMPRESSIONISTA("Impressionista"),
 	CUBISTA("Cubista"),
 	CLASSICO("Classico"),
-	RINASCIMENTALE("Rinascimentale");
+	RINASCIMENTALE("Rinascimentale"),
+	POPART("Pop-Art");
 	
 	private final String displayValue;
 

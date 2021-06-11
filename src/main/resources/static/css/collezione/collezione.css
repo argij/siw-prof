@@ -1,4 +1,10 @@
 
+.body {
+	min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 /*text settings*/
 .title {
   text-align: center;
@@ -69,4 +75,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+.title h1 {
+	font-size: 30px;
 }

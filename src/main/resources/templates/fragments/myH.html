@@ -42,7 +42,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 		<div class ="fondo">
         	<a href="#luogo">Dove siamo</a>
         	<a href="#contacts">Contattaci</a>
-        	<a href="areaAdmin" th:href="@{/admin/areaAdmin}">Amministratori</a>
+        	<span sec:authorize="hasAuthority('ADMIN')"><a href="areaAdmin" th:href="@{/admin/areaAdmin}">Amministratori</a></span>
       	</div>
 	</footer>
 </body>
