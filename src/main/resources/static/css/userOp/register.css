@@ -36,10 +36,20 @@ input {
    outline: none;
 }
 
+button:hover {
+	width: 15%;
+	height: 2.5vh;
+	border: none;
+	border-radius: 5px;
+	background-color: #7CFC00;
+	color: white;
+}
+
 button {
-   width: 15%;
-   height: 2.5vh;
-   border: none;
-   border-radius: 5px;
-   background-color: #90EE90;
+	width: 15%;
+	height: 2.5vh;
+	border: none;
+	border-radius: 5px;
+	background-color: white;
+	color: #7CFC00;
 }

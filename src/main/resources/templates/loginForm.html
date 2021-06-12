@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link th:href="@{/css/userOp/login.css}" rel="stylesheet">
-<head th:replace="fragments/myH.html :: headerfiles(title='Login')"> </head>
+<head th:replace="fragments/myH.html :: headerfiles(title='Login Utente')"> </head>
+<link rel="stylesheet" th:href="@{/css/userOp/login.css}" />
 <body>
 	<nav th:replace="fragments/myH.html :: nav(index='/default')"></nav>
 	<div class="title">
-		<p>Benvenuto!</p>
+		<p>Login</p>
 	</div>
 	<form th:action="@{/login}" method="POST">
 	<div class="box">
@@ -17,7 +17,7 @@
 				<span><input name="password" type="password" placeholder="Password" required /></span>
 			</div>
 			<div class="element">
-				<span><button type="submit">Login</button></span>
+				<span><button type="submit"><b>Login</b></button></span>
 			</div>
 		</div>
 	</div>
