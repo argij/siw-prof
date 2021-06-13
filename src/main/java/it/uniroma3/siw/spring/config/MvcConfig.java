@@ -10,6 +10,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
  
+	/**
+	 * espone la cartella uploadable in modo da consentire il caricamento dei file
+	 */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         exposeDirectory("uploadable", registry);
@@ -19,8 +22,10 @@ public class MvcConfig implements WebMvcConfigurer {
         Path uploadDir = Paths.get(dirName);
         String uploadPath = uploadDir.toFile().getAbsolutePath();
          
-        if (dirName.startsWith("../")) dirName = dirName.replace("../", "");
+        if (dirName.startsWith("../")) 
+        	dirName = dirName.replace("../", "");
          
+        /**rende la mia cartella resource handler**/
         registry.addResourceHandler("/" + dirName + "/**").addResourceLocations("file:/"+ uploadPath + "/");
     }
 }

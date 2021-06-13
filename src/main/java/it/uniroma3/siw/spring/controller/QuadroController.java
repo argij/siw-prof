@@ -35,6 +35,11 @@ public class QuadroController {
     @Autowired
     private CollezioneService collezioneService;
     
+    /**
+     * un amministratore vuole inserire un nuovo quadro
+     * @param model
+     * @return string
+     */
     @RequestMapping(value="/admin/quadro", method = RequestMethod.GET)
     public String addQuadro(Model model) {
     	model.addAttribute("quadro", new Quadro());
@@ -43,25 +48,43 @@ public class QuadroController {
         return "quadroForm";
     }
 
+    /**
+     * un utente vuole visualizzare la pagina di uno specifico quadro
+     * @param id
+     * @param model
+     * @return string
+     */
     @RequestMapping(value = "/quadro/{id}", method = RequestMethod.GET)
     public String getQuadro(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("quadro", this.quadroService.quadroPerId(id));
     	return "quadro";
     }
     
-   @RequestMapping(value = "/admin/quadro/{id}", method = RequestMethod.GET)
+    /**
+     * un amministratore vuole cancellare un determinato quadro
+     * @param id
+     * @param model
+     * @return
+     */
+    //il peepee di darth sidious è jimpo la confuzione giraffe tazza foglia dejavu pappagallo triceratopo
+    @RequestMapping(value = "/admin/quadro/{id}", method = RequestMethod.GET)
     public String deleteQuadro(@PathVariable("id") Long id, Model model) {
     	this.quadroService.cancella(id);
     	model.addAttribute("quadri", this.quadroService.tuttiOrdinatiPerTitolo());
     	return "quadri";
     }
 
+    /**
+     * un utente vuole visualizzare la lista di quadri
+     * @param model
+     * @return string
+     */
     @RequestMapping(value = "/quadri", method = RequestMethod.GET)
     public String getQuadri(Model model) {
     		model.addAttribute("quadri", this.quadroService.tuttiOrdinatiPerTitolo());
     		return "quadri";
     }
-    
+
     @RequestMapping(value = "/admin/quadro", method = RequestMethod.POST)
     public String addQuadro(@ModelAttribute("quadro") Quadro quadro, 
     									Model model, BindingResult bindingResult, @RequestParam("image") MultipartFile multipartFile) throws IOException {

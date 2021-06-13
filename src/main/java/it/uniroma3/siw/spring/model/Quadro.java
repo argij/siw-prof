@@ -45,7 +45,7 @@ public class Quadro {
 	
 	 @Transient
 	    public String getPhotosImagePath() {
-	        if (foto == null || id == null) return null;
+	        if (foto.equals(null) || id.equals(null)) return null;
 	         
 	        return "/uploadable/quadri/" + id + "/" + foto;
 	    }

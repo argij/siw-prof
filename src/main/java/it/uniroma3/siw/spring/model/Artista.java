@@ -47,24 +47,11 @@ public class Artista {
 	private String ritratto;
 	@Column(length=5096)
 	private String biografia;
-	
-	public Artista(String nome, String cognome, LocalDate dataDiNascita, String luogoDiNascita, String ritratto) {
-		super();
-		this.nome = nome;
-		this.cognome = cognome;
-		this.dataDiNascita = dataDiNascita;
-		this.luogoDiNascita = luogoDiNascita;
-		this.ritratto = ritratto;
-	}
-	
+
 	 @Transient
 	    public String getPhotosImagePath() {
-	        if (ritratto == null || id == null) return null;
+	        if (ritratto.equals(null) || id.equals(null)) return null;
 	         
 	        return "/uploadable/artista-ritratto/" + id + "/" + ritratto;
 	    }
-	
-
-	
-
 }

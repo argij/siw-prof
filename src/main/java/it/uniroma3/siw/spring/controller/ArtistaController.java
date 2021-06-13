@@ -20,7 +20,6 @@ import it.uniroma3.siw.spring.model.Quadro;
 import it.uniroma3.siw.spring.service.ArtistaService;
 import it.uniroma3.siw.spring.service.QuadroService;
 
-
 @Controller
 @RequestMapping
 public class ArtistaController {
@@ -34,26 +33,46 @@ public class ArtistaController {
 	@Autowired
 	private QuadroService quadroService;
 	
-	 @RequestMapping(value="/admin/artista", method = RequestMethod.GET)
-	    public String addArtista(Model model) {
-	    	model.addAttribute("artista", new Artista());
-	        return "artistaForm";
-	    }
+	/**
+	 * l'amministratore vuole inserire i dati di un nuovo artista
+	 * @param model
+	 * @return String
+	 */
+	@RequestMapping(value="/admin/artista", method = RequestMethod.GET)
+	public String addArtista(Model model) {
+	    model.addAttribute("artista", new Artista());
+	    return "artistaForm";
+	}
 
+	/**
+	 * un utente (anche un amministratore) vuole visionare la pagina di uno
+	 * specifico artista
+	 * @param id
+	 * @param model
+	 * @return String
+	 */
     @RequestMapping(value = "/artista/{id}", method = RequestMethod.GET)
     public String getArtista(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("artista", this.artistaService.artistaPerId(id));
     	List<Quadro> quadri = this.quadroService.perArtista(this.artistaService.artistaPerId(id));
-    	//voglio mostrare solo i primi sei quadri per evitare di intasare la pagina
+    	
+    	//voglio mostrare solo i primi sei quadri 
     	if (quadri.size() < 6) {
     		model.addAttribute("quadri", quadri);
     	}
     	else {
     		model.addAttribute("quadri", quadri.subList(0, 5));
     	}
+    	
     	return "artista";
     }
     
+    /**
+     * l'amministratore vuole cancellare un artista dal db
+     * @param id
+     * @param model
+     * @return String
+     */
     @RequestMapping(value = "/admin/artista/{id}", method = RequestMethod.GET)
     public String deleteArtista(@PathVariable("id") Long id, Model model) {
     	this.artistaService.cancella(id);
@@ -61,12 +80,30 @@ public class ArtistaController {
     	return "artisti";
     }
 
+    /**
+     * un utente (anche un amministratore) vuole visualizzare la 
+     * lista di tutti gli artisti salvati all'interno del db
+     * del museo
+     * @param model
+     * @return String
+     */
     @RequestMapping(value = "/artisti", method = RequestMethod.GET)
     public String getArtisti(Model model) {
     		model.addAttribute("artisti", this.artistaService.tuttiOrdinati());
     		return "artisti";
     }
     
+    /**
+     * metodo post di inserimento dell'artista
+     * l'artista inserito viene validato, se la verifica è corretta
+     * viene settato il path del file del ritratto
+     * @param artista
+     * @param model
+     * @param bindingResult
+     * @param multipartFile
+     * @return String
+     * @throws IOException
+     */
     @RequestMapping(value = "/admin/artista", method = RequestMethod.POST)
     public String addArtista(@ModelAttribute("artista") Artista artista, 
     									Model model, BindingResult bindingResult, @RequestParam("image") MultipartFile multipartFile) throws IOException {

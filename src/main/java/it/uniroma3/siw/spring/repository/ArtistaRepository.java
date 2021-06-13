@@ -15,6 +15,7 @@ public interface ArtistaRepository extends CrudRepository<Artista, Long> {
 
 	public List<Artista> findByNomeAndCognome(String nome, String cognome);
 
+	//riporta tutti gli artisti ordinati con cognomi in ordine alfabetico
 	public List<Artista> findByOrderByCognomeAsc();
 	
 }

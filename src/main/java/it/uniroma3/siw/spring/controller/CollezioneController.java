@@ -31,6 +31,7 @@ public class CollezioneController {
     private QuadroService quadroService;
     
     /**
+     * azione dell'amministratore
      * Crea un nuovo oggetto collezione e reindirizza alla pagina collezioneForm
      * @param model
      * @return string
@@ -42,19 +43,36 @@ public class CollezioneController {
         return "collezioneForm";
     }
 
+    /**
+     * un utente vuole visualizzare la pagina di una specifica collezione
+     * @param id
+     * @param model
+     * @return string
+     */
     @RequestMapping(value = "/collezione/{id}", method = RequestMethod.GET)
-    public String getQuadro(@PathVariable("id") Long id, Model model) {
+    public String getCollezione(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(id));
     	model.addAttribute("quadri", this.quadroService.perCollezione(this.collezioneService.collezionePerId(id)));
     	return "collezione";
     }
 
+    /**
+     * un utente vuole visualizzare la lista di tutte le collezioni salvate
+     * @param model
+     * @return string
+     */
     @RequestMapping(value = "/collezioni", method = RequestMethod.GET)
-    public String getQuadri(Model model) {
+    public String getCollezioni(Model model) {
     		model.addAttribute("collezioni", this.collezioneService.tuttiOrdinati());
     		return "collezioni";
     }
     
+    /**
+     * un amministratore vuole cancellare una collezione salvata
+     * @param id
+     * @param model
+     * @return string
+     */
     @RequestMapping(value = "/admin/collezione/{id}", method = RequestMethod.GET)
     public String deleteCollezione(@PathVariable("id") Long id, Model model) {
     	this.collezioneService.cancella(id);

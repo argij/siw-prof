@@ -10,7 +10,10 @@ import it.uniroma3.siw.spring.model.Curatore;
 public interface CollezioneRepository extends CrudRepository<Collezione, Long> {
 	
 	public List<Collezione> findByNome(String nome);
+	
 	public Collezione findByCuratore(Curatore curatore);
+	
+	//riporta le collezione ordinate per ordine alfabetico
 	public List<Collezione> findByOrderByNomeAsc();
 
 }
