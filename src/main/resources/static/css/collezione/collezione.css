@@ -1,14 +1,15 @@
 
-.body {
-	min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
 
 /*text settings*/
 .title {
   text-align: center;
   padding: 25px 25px;
+}
+
+.box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 /*flexbox container settings*/
@@ -18,8 +19,14 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  margin: 50px 20px 20px 50px;
-  margin: 0;
+  margin: 50px 20px 50px 20px;
+
+}
+
+.sposta {
+	width: 20%;
+	height: auto;
+    padding: 20px;
 }
 
 /*images fading effects*/
@@ -30,6 +37,8 @@
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
+  height: 300px;
+  width: 300px;
 }
 
 .overlay {
@@ -64,7 +73,7 @@
   display: block;
   width: 300px;
   height: 300px;
-  margin: 15px 25px 25px 15px;
+  /*margin: 15px 25px 25px 15px;*/
 }
 
 .text {
@@ -78,5 +87,5 @@
 }
 
 .title h1 {
-	font-size: 30px;
+	font-size: 35px;
 }

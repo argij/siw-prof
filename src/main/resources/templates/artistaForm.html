@@ -13,7 +13,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 	</div>
 	<form th:action="@{/admin/artista}" method="POST" th:object="${artista}" enctype="multipart/form-data">
 		<div th:if="${#fields.hasGlobalErrors()}">
-  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" style="text-align: center; color:red">...</p>
 		</div>		
 		<div class ="inserisci">
 			<div class ="row">

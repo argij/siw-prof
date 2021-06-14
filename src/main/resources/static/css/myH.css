@@ -1,3 +1,12 @@
+html {
+	position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 40px;
+    /* bottom = footer height */
+}
 
 .topnav {
   background-color: #333;
@@ -81,13 +90,12 @@
 
 .fondo {
   background-color: #333;
-  overflow: hidden;
+  position: absolute;
   left: 0;
   bottom: 0;
-  right: 0;
+  height: 40px;
   width: 100%;
-  margin-top: auto;
-  flex-grow: 1;
+  overflow: hidden;
 }
 
 .fondo a {

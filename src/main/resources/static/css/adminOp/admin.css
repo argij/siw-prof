@@ -10,7 +10,7 @@
 }
 
 .title p {
-	font-size: 25px;
+	font-size: 35px;
 }
 
 .list {
@@ -22,7 +22,7 @@
 .list a {
 	padding:5px 5px;
 	text-decoration:none;
-	font-size:15px;
+	font-size:20px;
 	color: black;
 }
 
