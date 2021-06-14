@@ -49,8 +49,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 				<div class="col-1"><label>Immagine:</label></div>
 				<div class="col-2"><input type="file" name="image" accept="image/png, image/jpeg" /></div>
 			</div>
+			<div class = "row">
+				<div class="col-1"><a href="artistaForm" th:href="@{/admin/artista}">Aggiungi un nuovo artista</a></div>
+				<div class="col-2"><a href="collezioneForm" th:href="@{/admin/collezione}">Aggiungi una nuova collezione</a></div>
+			</div>
 			<div class ="row">
+				<div class="pad">
 				<span><button type="submit" id="invio">Invio</button></span>
+				</div>
 			</div>
 		</div>
 	</form>
