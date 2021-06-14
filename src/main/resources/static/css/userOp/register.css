@@ -36,7 +36,7 @@ input {
    outline: none;
 }
 
-button:hover {
+.button:hover {
 	width: 15%;
 	height: 2.5vh;
 	border: none;
@@ -45,7 +45,7 @@ button:hover {
 	color: white;
 }
 
-button {
+.button {
 	width: 15%;
 	height: 2.5vh;
 	border: none;
