@@ -57,7 +57,7 @@ public class ArtistaController {
     	List<Quadro> quadri = this.quadroService.perArtista(this.artistaService.artistaPerId(id));
     	
     	//voglio mostrare solo i primi sei quadri 
-    	if (quadri.size() < 6) {
+    	if (quadri.size() <= 6) {
     		model.addAttribute("quadri", quadri);
     	}
     	else {
