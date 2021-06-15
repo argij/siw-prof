@@ -42,10 +42,12 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     </header>
     <section>
       <!-- main paragraph --> 
-      <p class = 'welcome'>Benvenuti nel nostro sito</p>
+      <div class="paragraph">
+      <p class = 'welcome'>Benvenuti nel nostro sito!</p>
       <p>Aperti solo nei giorni dispari con luna calante</p>
       <p>Orario: 7:30 - 9:30</p>
       <p>Attenti alle scale, a loro piace cambiare!</p>
+      </div>
       <!-- gallery -->
       <div class = "slideshow">
           <img class="mySlides" th:src="@{/images/home/quadro1.jpg}" style="width:auto; height:680px">

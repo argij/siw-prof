@@ -59,6 +59,7 @@ button[type=submit]:hover {
 .but {
 	display:flex;
 	justify-content: center;
+	padding-top: 15px;
 }
 
 /* Clear floats after the columns */

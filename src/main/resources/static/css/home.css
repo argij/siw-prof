@@ -1,5 +1,6 @@
 * {
 	margin: 0;
+	font-family: verdana, sans-serif;
 }
 
 .topnav {
@@ -84,6 +85,19 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.paragraph {
+	padding: 25px;
+    width: 50%;
+	border: solid;
+	border-color: black;
+	margin:auto;
+}
+
+.paragraph p {
+	padding: 5px;
+	font-size: 18px;
 }
 
 #fotomuseo {

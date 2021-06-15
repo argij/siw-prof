@@ -38,13 +38,15 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
       <section>
         <div class="list">
           <p><b>Artisti</b></p>
-          <ul>
+           <ul>
 			<li th:each="artista : ${artisti}">
+			<div>
 				<a href="artista.html" 
 				   th:href="@{'/artista' + '/' + ${artista.id}}" >
 				<span th:text="${artista.nome}">Nome</span>
 				<span th:text="${artista.cognome}"> Cognome</span></a>
 				<span class="canc" sec:authorize="hasAuthority('ADMIN')"><a href="artisti.html" th:href="@{'/admin/artista/' + ${artista.id}}"> Elimina</a></span>
+			</div>
 			</li>
 		</ul>
         </div>
